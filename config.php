@@ -1,9 +1,9 @@
 <?php
 $host = 'localhost';
 $port = '5432';
-$dbname = 'traxano';        // Use 'dbname' consistently
+$dbname = 'traxano//your database';        // Use 'dbname' consistently
 $user = 'postgres';
-$password = '2102';         // Use 'password' consistently
+$password = 'your password';         // Use 'password' consistently
 
 // Procedural PostgreSQL connection
 $conn = pg_connect("host=$host port=$port dbname=$dbname user=$user password=$password");
