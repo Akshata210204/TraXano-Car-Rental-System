@@ -1,9 +1,9 @@
 <?php
 $host = "localhost";
 $port = "5432";
-$dbname = "traxano";
+$dbname = "traxano // your database";
 $user = "postgres";
-$password = "2102";
+$password = "your password";
 
 $conn = pg_connect("host=$host port=$port dbname=$dbname user=$user password=$password");
 ?>
