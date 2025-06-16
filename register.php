@@ -1,8 +1,8 @@
 <?php
 $host = 'localhost';
-$dbname = 'traxano';
+$dbname = 'traxano// make ur own database';
 $user = 'postgres';
-$password = '2102';
+$password = 'your password';
 
 try {
     $pdo = new PDO("pgsql:host=$host;dbname=$dbname", $user, $password);
