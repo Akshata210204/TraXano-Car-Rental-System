@@ -1,0 +1,4 @@
+Received Data: 
+Received Data: {"userEmail":"aks@gmail.com","carName":"Ford Mustang","rentalType":"perDay","price":"0","pickupDate":"","dropoffDate":"","pickupAddress":"Company","dropoffAddress":"Company"}
+Received Data: {"userEmail":"aks@gmail.com","carName":"Honda Civic","rentalType":"perHour","price":60,"pickupDate":"","dropoffDate":"","pickupAddress":"Company","dropoffAddress":"Company"}
+Received Data: {"userEmail":"aks@gmail.com","carName":"Honda Civic","rentalType":"perDay","price":135,"pickupDate":"2025-03-25","dropoffDate":"2025-03-27","pickupAddress":"Company","dropoffAddress":"Company"}

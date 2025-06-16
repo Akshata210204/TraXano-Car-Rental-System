@@ -1,0 +1,332 @@
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'poppins', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(90deg, white 60%, rgb(0, 128, 255) 40%);
+
+}
+
+
+/* HEADER */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #355e69;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 30px;
+    height: 70px;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: transparent;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    z-index: 1000;
+    height: 70px;
+}
+  
+  /* Logo Container */
+  .navbar .logo {
+    display: flex;
+    align-items: center;
+  }
+  
+  .navbar .logo img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%; /* Optional: Makes the logo round */
+    object-fit: cover;
+    margin-right: 10px;
+  }
+  
+  .navbar .logo span {
+    font-family: 'Garamond', serif;
+    font-size: 24px;
+  }
+  
+  .nav-links {
+    display: flex;
+    gap: 20px;
+  }
+  
+  .nav-links a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .nav-links a:hover {
+    background-color: #28a745;
+  }
+
+
+/* Hero Section */
+.hero {
+    margin-top: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 120px 60px;
+    background: linear-gradient(90deg, white 60%, rgb(0, 128, 255) 40%);
+}
+
+.hero-content {
+    max-width: 800px;
+    color: #333;
+}
+
+.hero-content h1 {
+    font-size: 80px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: #2c3e50;
+    line-height: 1.2;
+}
+
+.hero-content p {
+    font-size: 20px;
+    font-weight: 400;
+    margin-bottom: 30px;
+    color: #555;
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 15px;
+}
+
+.cta-buttons .btn {
+    padding: 14px 30px;
+    border-radius: 10px;
+    color: white;
+    background-color: #f39c12;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+
+.cta-buttons .btn:hover {
+    background-color: #e67e22;
+}
+/* Car Sliding Effect */
+.car-container {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    aspect-ratio: 4 / 3; /* Keeps shape without fixed height */
+    background-color: transparent; /* Already covered by hero's background */
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.car-box {
+    position: absolute;
+    top: 50%;
+    transform: scale(1.2);
+    right: -100%; /* Start off-screen on the right */
+    animation: slideInFromRight 2s ease-out forwards; /* Animation */
+}
+
+.car-box img {
+    width: 1000%;
+    object-fit: contain;
+    height: auto;
+}
+
+/* Car Slide Animation */
+@keyframes slideInFromRight {
+    0% {
+        transform: translateY(-50%) translateX(100%); /* Start off-screen */
+    }
+    100% {
+        transform: translateY(-50%) translateX(0); /* End at normal position */
+    }
+}
+/* Car Slide Image */
+.slide-in-car {
+    position: relative; /* Keep it in normal flow */
+    width: 100%;
+    max-width: 900px;
+    height: auto;
+    animation: slideCar 2s ease-out forwards;
+}
+
+/* Slide-in Animation */
+@keyframes slideCar {
+    0% {
+        transform: translateX(100%); /* Start off-screen to the right */
+    }
+    100% {
+        transform: translateX(0); /* Slide into place */
+    }
+}
+
+
+/* Button Styles */
+.btn.primary {
+    background: linear-gradient(135deg, #7f00ff, #007bff); /* Purple to Blue */
+    color: white;
+    border: none;
+    transition: background 0.3s ease;
+}
+
+.btn.primary:hover {
+    background: linear-gradient(135deg, #6a00cc, #0056b3); /* Slightly darker on hover */
+}
+
+
+.btn.secondary {
+    background-color: #007bff;
+}
+
+.btn.secondary:hover {
+    background-color: #0056b3;
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+    .hero {
+        flex-direction: column;
+        padding: 100px 20px 40px;
+        background: white;
+    }
+
+    .hero-content {
+        width: 100%;
+        text-align: center;
+    }
+
+    .car-container {
+        width: 100%;
+        height: auto;
+    }
+
+    .car-box img {
+        max-width: 100%;
+        height: auto;
+    }
+}
+
+/* FORM BOX */
+/* FORM BOX - Enhanced UI */
+
+.form-box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1001;
+    background: linear-gradient(135deg, #ffffff, #f7f7f7);
+    padding: 20px 40px;
+    width: 500px;
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.15);
+    border-radius: 20px;
+    font-family: 'Poppins', sans-serif;
+    transition: all 0.3s ease-in-out;
+}
+
+.form-box h2 {
+    font-size: 30px;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 30px;
+    color: #2c3e50;
+}
+
+.form-box input {
+    width: 100%;
+    padding: 14px 18px;
+    font-size: 16px;
+    border-radius: 10px;
+    border: 1.5px solid #ddd;
+    margin-bottom: 16px;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.form-box input:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.25);
+}
+
+.form-box button {
+    width: 100%;
+    padding: 15px;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    background: linear-gradient(135deg, #28a745, #218838);
+    color: white;
+    transition: all 0.3s ease;
+}
+
+.form-box button:hover {
+    background: linear-gradient(135deg, #218838, #1e7e34);
+    transform: scale(1.02);
+}
+
+.form-box p.error {
+    color: #e74c3c;
+    font-weight: 500;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.form-box p.success {
+    color: #2ecc71;
+    font-weight: 500;
+    margin-top: 10px;
+    text-align: center;
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+    .form-box {
+        width: 90%;
+        padding: 30px 20px;
+    }
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    padding: 8px 0;
+    font-size: 14px;
+    font-weight: bold;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+

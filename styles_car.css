@@ -1,0 +1,90 @@
+/* Filter Section */
+.filters {
+    display: flex;
+    flex-wrap: wrap; /* Ensures responsiveness */
+    justify-content: center;
+    align-items: center;
+    background: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0px 6px 18px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease; /* Smooth shadow effect */
+}
+
+.filters:hover {
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2); /* Hover effect for more depth */
+}
+
+/* Style individual filter fields */
+.filters label {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #333;
+    margin-right: 15px;
+    margin-bottom: 10px; /* Adjust spacing for better alignment */
+    white-space: nowrap;
+}
+
+/* Style select dropdowns */
+.filters select {
+    padding: 12px 20px;
+    font-size: 1rem;
+    border: 2px solid #007bff;
+    border-radius: 5px;
+    margin-right: 20px;
+    background-color: #f8f9fa;
+    transition: border-color 0.3s ease, background-color 0.3s ease; /* Transition for select input */
+}
+
+.filters select:focus {
+    border-color: #0056b3;
+    background-color: #e9ecef;
+}
+
+/* Style the filter button */
+.filters button {
+    padding: 12px 25px;
+    font-size: 1rem;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s; /* Transition for smooth button interaction */
+}
+
+.filters button:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px); /* Button hover effect */
+}
+
+.filters button:active {
+    transform: translateY(0); /* Return to normal on click */
+}
+
+/* Ensure proper spacing between filter fields */
+.filter-field {
+    display: flex;
+    align-items: center;
+    margin: 10px;
+    gap: 15px; /* Adjust spacing between label and select */
+}
+
+@media (max-width: 768px) {
+    .filters {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .filters label {
+        margin-bottom: 5px; /* Reduce bottom margin for mobile */
+    }
+
+    .filters select {
+        margin-bottom: 15px; /* Add spacing between selects on mobile */
+    }
+
+    .filters button {
+        width: 100%;
+    }
+}

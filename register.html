@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - Traxano</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo-container">
+            <img src="images/logo.png" alt="Logo">
+            <h1>Traxano</h1>
+        </div>
+        <nav>
+            <a href="about.html">About</a>
+            <a href="terms_cond.html">Terms & Condition</a>
+            <button onclick="showForm('loginForm')">Login</button>
+            <button onclick="showForm('guestLoginForm')">Guest Login</button>
+        </nav>
+    </header>
+
+    <!-- Registration Form -->
+    <form id="registerForm">
+        <h2>Register</h2>
+
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        <button type="button" id="send-email-otp-btn">Send OTP</button>
+
+        <label for="emailOtp">Enter Email OTP:</label>
+        <input type="text" id="emailOtp" name="emailOtp" required>
+        <button type="button" id="verify-email-otp-btn">Verify OTP</button>
+
+        <p class="error" id="errorMessage"></p>
+        <p class="success" id="successMessage"></p>
+
+        <button type="submit" id="register-btn" style="display: none;">Register</button>
+    </form>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Traxano. All rights reserved.</p>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+    </footer>
+
+    <script>
+      document.getElementById("send-email-otp-btn").addEventListener("click", function () {
+    const email = document.getElementById("email").value;
+    fetch("/send-email-otp", { // Changed to hyphen
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email })
+    })
+    .then(res => res.json())
+    .then(data => {
+        document.getElementById("errorMessage").textContent = "";
+        document.getElementById("successMessage").textContent = data.message;
+    })
+    .catch(() => {
+        document.getElementById("errorMessage").textContent = "Failed to send OTP.";
+    });
+});
+
+document.getElementById("verify-email-otp-btn").addEventListener("click", function () {
+    const otp = document.getElementById("emailOtp").value;
+    fetch("/verify-email-otp", { // Changed to hyphen
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ otp })
+    })
+    .then(res => res.json())
+    .then(data => {
+        if (data.success) {
+            document.getElementById("errorMessage").textContent = "";
+            document.getElementById("successMessage").textContent = data.message;
+            document.getElementById("register-btn").style.display = "inline-block";
+        } else {
+            document.getElementById("successMessage").textContent = "";
+            document.getElementById("errorMessage").textContent = data.message;
+        }
+    })
+    .catch(() => {
+        document.getElementById("errorMessage").textContent = "OTP verification failed.";
+    });
+}); 
+    </script>
+</body>
+</html>

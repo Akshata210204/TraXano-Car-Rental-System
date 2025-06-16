@@ -1,0 +1,208 @@
+/* Base Styling */
+body {
+    font-family: 'Poppins', sans-serif;
+    
+    color: black;
+    min-height: 100vh;
+    margin: 0;
+    padding-top: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(90deg, white 50%, rgb(0, 128, 255) 50%);
+}
+
+/* Booking Container */
+.booking-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 1000px;
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+    text-align: center;
+    border: 1px solid #404b5a;
+    padding: 30px;
+    gap: 10px;
+    margin-top: 60px;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: transparent;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    height: 40px;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 0;
+}
+
+/* Content Layout */
+.content {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+/* Car Showcase - Left */
+.car-showcase {
+    flex: 1;
+    background: linear-gradient(135deg, #3a0ca3, #4361ee);
+    padding: 20px;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+}
+
+.car-image {
+    width: 100%;
+    max-height: 200px;
+    object-fit: contain;
+    background-color: #e0e0e0;
+    border-radius: 10px;
+    transition: transform 0.4s ease-in-out;
+}
+
+.car-image:hover {
+    transform: scale(1.05);
+}
+
+/* Right Section (User Info & Car Info) */
+.right-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.user-info, .car-info {
+    background: #f9f9f9;
+    border-radius: 10px;
+    padding: 5px;
+    color: #1a1a1a;
+    font-size: 18px;
+    font-weight: 500;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Booking Details Box */
+.details-box {
+    background: linear-gradient(135deg, #3a0ca3, #4361ee);
+    padding: 20px;
+    border-radius: 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 100%;
+    border: 1px solid #4d5e70;
+    color: white;
+}
+
+.details {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.input-group {
+    flex: 1 1 48%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.input-field {
+    font-size: 18px;
+    padding: 14px;
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    color: #222;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+}
+
+.input-field:focus {
+    border-color: #7209b7;
+    box-shadow: 0 0 6px rgba(114, 9, 183, 0.4);
+    outline: none;
+}
+
+/* Total Price & Payment */
+.total-price {
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    color: #38b000;
+    background: #ffffff;
+    border-radius: 10px;
+    padding: 2px;
+    box-shadow: 0 4px 10px rgba(56, 176, 0, 0.2);
+}
+
+.submit-btn {
+    background: linear-gradient(135deg, #7209b7, #4cc9f0);
+    color: white;
+    padding: 14px 20px;
+    border: none;
+    border-radius: 10px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.submit-btn:hover {
+    background: linear-gradient(135deg, #560bad, #3a0ca3);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(72, 0, 139, 0.4);
+}
+
+/* Style for 'Other' Address Fields */
+#pickupAddress,
+#dropoffAddress {
+    display: none;
+    margin-top: 8px;
+    padding: 12px;
+    border: 1px solid #bbb;
+    border-radius: 8px;
+    width: 100%;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+/* Visible state for 'Other' input fields */
+.show {
+    display: block !important;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .content {
+        flex-direction: column;
+    }
+
+    .details {
+        flex-direction: column;
+    }
+}
+.nav-links a {
+    color:black;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+  }
+  

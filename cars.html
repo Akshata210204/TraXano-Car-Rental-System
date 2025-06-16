@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Available Cars - Traxano</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles_car.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css" rel="stylesheet">
+
+</head>
+<body>
+    <header>
+        <h1 style="color: white;">Traxano: Easy Car Renting</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="terms_cond.html">Terms & Condition</a>
+            <a href="profile.html">Profile</a>
+        </nav>
+    </header>
+      
+    <main>
+        <!-- Filters Section -->
+        <section class="filters">
+            <label for="budget">Budget:</label>
+            <select id="budget">
+                <option value="all">All</option>
+                <option value="low">Rs.1500 - Rs.2000</option>
+                <option value="medium">Rs.2001 - Rs.2800</option>
+                <option value="high">Rs.2801+</option>
+            </select>
+
+            <label for="tripType">Trip Type:</label>
+            <select id="tripType">
+                <option value="all">All</option>
+                <option value="city">City</option>
+                <option value="long">Long Drive</option>
+                <option value="offroad">Off-road</option>
+            </select>
+
+            <label for="fuelType">Fuel Type:</label>
+            <select id="fuelType">
+                <option value="all">All</option>
+                <option value="petrol">Petrol</option>
+                <option value="diesel">Diesel</option>
+                <option value="electric">Electric</option>
+            </select>
+
+            <label for="seating">Seating:</label>
+            <select id="seating">
+                <option value="all">All</option>
+                <option value="2">2-Seater</option>
+                <option value="4">4-Seater</option>
+                <option value="6">6-Seater</option>
+                <option value="8">8+ Seater</option>
+            </select>
+
+            <button onclick="applyFilters()">Apply Filters</button>
+        </section>
+
+        <section class="car-list-section">
+            <div id="carList"></div>
+          </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Traxano Car Rentals. All Rights Reserved.</p>
+    </footer>
+
+    <script src="cars.js"></script>
+</body>
+</html>

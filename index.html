@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Traxano - Easy Car Rental</title>
+    <link rel="stylesheet" href="styles1.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="homepage">
+  
+    <!-- Transparent Header -->
+    <header class="navbar">
+        <div class="logo">
+            <img src="images/logo.png" alt="Logo" />
+            <span style="color: black; font-size:xx-large;"> TRAXANO: EASY CAR RENTING</span>
+        </div>
+        <nav class="nav-links">
+            <a href="#">Home</a>
+            <a href="cars.html">Cars</a>
+            <a href="about.html">About</a>
+            <a href="terms_cond.html">Terms & Condition</a>
+            <a href="javascript:void(0)" onclick="showForm('login')">Login</a>
+        <a href="javascript:void(0)" onclick="showForm('register')">Register</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Explore. Compare. Cruise Away.</h1>
+            <p>Smart filters help you find the car that fits your journey – quickly and effortlessly.</p>
+            <div class="cta-buttons">
+              <a href="cars.html" class="btn primary">Explore Cars</a>
+              <button class="btn primary" onclick="showForm('login')">Get Started</button>
+            </div>
+          </div>
+          
+        </div>
+        
+        <!-- Vertical Orange Box -->
+        <div class="car-container">
+            <div class="car-box"></div>
+            <img src="images/car.png" alt="Showcase Car" class="img-fluid slide-in-car">
+        </div>
+        
+    </section>
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Register Form -->
+        <div id="register" class="form-box" style="display: none;">
+            <h2>Register</h2>
+            <form id="registerForm" action="register.php" method="POST">
+                <input type="text" id="name" name="name" required placeholder="Name">
+                
+                <input type="tel" id="phone" name="phone" required placeholder="Phone">
+                <button type="button" id="send-phone-otp-btn">Send OTP</button>
+                <input type="text" id="phoneOtp" name="phoneOtp" placeholder="Enter Phone OTP" required>
+                <button type="button" id="verify-phone-otp-btn">Verify OTP</button>
+                <input type="hidden" id="hiddenPhoneOtp" name="phoneOtp">
+
+                <input type="email" id="email" name="email" required placeholder="Email">
+                <button type="button" id="send-email-otp-btn">Send OTP</button>
+                <input type="text" id="emailOtp" name="emailOtp" placeholder="Enter Email OTP" required>
+                <button type="button" id="verify-email-otp-btn">Verify OTP</button>
+                <input type="hidden" id="hiddenEmailOtp" name="emailOtp">
+
+                <input type="password" id="password" name="password" required placeholder="Password">
+    <input type="password" name="confirm_password" required placeholder="Confirm Password">
+    
+                <input type="text" id="license_number" name="license_number" required placeholder="License Number">
+                <button type="button" id="verify-license-btn">Verify License</button>
+                <p id="license-status"></p> <!-- Message for verification result -->
+                
+                <input type="number" id="age" name="age" required placeholder="Age" min="23">
+
+                
+                <p class="error" id="errorMessage"></p>
+                <p class="success" id="successMessage"></p>
+                
+                <button type="submit" id="register-btn" style="display: none;">Register</button>
+            </form>
+        </div>
+
+        <!-- Login Form -->
+        <div id="login" class="form-box" style="display: none;">
+            <h2>Login</h2>
+            <form action="login.php" method="POST">
+                <input type="email" name="email" required placeholder="Email">
+                <input type="password" name="password" required placeholder="Password">
+                <button type="submit">Login</button>
+            </form>
+        </div>
+
+        <!-- Guest Login -->
+        <div id="guest" class="form-box" style="display: none;">
+            <h2>Guest Login</h2>
+            <form action="guest_login.php" method="POST">
+                <input type="text" name="name" required placeholder="Name">
+                <button type="submit">Continue as Guest</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p style="color: black;font-size: larger;">&copy; 2025 Traxano. All rights reserved.</p>
+        
+
+    </footer>
+
+    <script src="scripts.js"></script>
+</body>
+</html>

@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Traxano</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: #f4f4f4;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding-top: 80px;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: #fff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 30px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            z-index: 1000;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-container img {
+            width: 50px;
+            margin-right: 10px;
+        }
+
+        .logo-container h1 {
+            font-size: 24px;
+            color: #2c3e50;
+        }
+
+        nav button, nav .btn {
+            background: none;
+            border: none;
+            font-size: 16px;
+            margin-left: 15px;
+            color: #2c3e50;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        nav .btn {
+            font-weight: 600;
+            color: #28a745;
+        }
+
+        nav button:hover, nav .btn:hover {
+            text-decoration: underline;
+        }
+
+        .form-box {
+            position: relative;
+            background: white;
+            padding: 40px 30px;
+            width: 400px;
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.1);
+            border-radius: 15px;
+        }
+
+        .form-box h2 {
+            font-size: 28px;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 25px;
+            color: #2c3e50;
+        }
+
+        .form-box input {
+            width: 100%;
+            padding: 14px;
+            font-size: 16px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            margin-bottom: 12px;
+        }
+
+        .form-box button {
+            width: 100%;
+            padding: 14px;
+            font-size: 17px;
+            font-weight: 600;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            background: #28a745;
+            color: white;
+            transition: background 0.3s ease;
+        }
+
+        .form-box button:hover {
+            background: #218838;
+        }
+
+        .form-box p.error {
+            color: #e74c3c;
+            font-weight: 500;
+            margin-top: 10px;
+        }
+
+        .form-box p.success {
+            color: #2ecc71;
+            font-weight: 500;
+            margin-top: 10px;
+        }
+
+        footer {
+            background: transparent;
+            text-align: center;
+            padding: 12px 0;
+            font-size: 14px;
+            font-weight: bold;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            color: #2c3e50;
+        }
+
+        @media screen and (max-width: 768px) {
+            .form-box {
+                width: 90%;
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="logo-container">
+            <img src="images/logo.png" alt="Logo">
+            <h1>Traxano</h1>
+        </div>
+        <nav>
+            <a href="index.html">Home</a>&nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="about.html">About</a>&nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="terms_cond.html">Terms & Condition</a>&nbsp;
+            <a href="cars.html" class="btn">Guest Login</a>
+        </nav>
+    </header>
+
+    <!-- Login Form -->
+    <div class="form-box">
+        <h2>Login</h2>
+        <form action="login.php" method="POST">
+            <input type="email" name="email" required placeholder="Email">
+            <input type="password" name="password" required placeholder="Password">
+            <button type="submit">Login</button>
+        </form>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Traxano. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+    </footer>
+
+</body>
+</html>

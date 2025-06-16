@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>User Profile</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding-top: 100px;
+      padding-bottom: 200px;
+      background: #f4f4f4;
+    }
+    header {
+      width: 100%;
+      background-color: rgb(0, 128, 255);
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      height: 40px;
+    }
+    .container {
+      max-width: 1500px;
+      margin: 20px auto;
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    h2, h3 {
+      text-align: center;
+      color: #333;
+    }
+    .user-details, .booking-details {
+      margin-bottom: 20px;
+    }
+    .user-details p {
+      font-size: 16px;
+      margin: 5px 0;
+    }
+    .bookings-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+    }
+    .bookings-table th, .bookings-table td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: left;
+    }
+    .bookings-table th {
+      background-color: #007bff;
+      color: white;
+    }
+    .no-bookings {
+      text-align: center;
+      font-style: italic;
+      color: #777;
+    }
+    .actions-buttons button {
+      margin-right: 5px;
+      padding: 5px 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+    .actions-buttons .update-btn {
+      background-color: #28a745;
+      color: white;
+    }
+    .actions-buttons .delete-btn {
+      background-color: #dc3545;
+      color: white;
+    }
+    footer {
+      width: 100%;
+      background-color: rgb(0, 128, 255);
+      color: white;
+      text-align: center;
+      padding: 10px 0;
+      position: fixed;
+      bottom: 0;
+      font-size: 14px;
+      font-weight: bold;
+      height: 30px;
+    }
+    #updateBox {
+      display: none;
+      margin-top: 20px;
+      padding: 20px;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      background: #fefefe;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    #updateForm label {
+      display: block;
+      margin: 10px 0 5px;
+      font-weight: bold;
+      color: #333;
+    }
+    #updateForm input {
+      padding: 8px;
+      width: 100%;
+      box-sizing: border-box;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    #saveUpdateBtn, #cancelUpdateBtn {
+      margin-top: 15px;
+      padding: 8px 16px;
+      font-size: 14px;
+      border-radius: 5px;
+      border: none;
+      cursor: pointer;
+    }
+    #makePaymentBtn{
+      background-color: #28a745;
+      color: white;
+      size: 20px;
+    }
+    .insurance-yes {
+      color: green;
+      font-weight: bold;
+    }
+    .insurance-no {
+      color: red;
+      font-weight: bold;
+    }
+    .updated-badge {
+    background-color: #28a745;
+    color: white;
+    padding: 2px 6px;
+    font-size: 12px;
+    border-radius: 4px;
+    margin-left: 5px;
+    
+}
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 16px;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>TRAXANO: Easy Car Renting</h1>
+  <nav>
+   
+    <a href="terms_cond.html">Terms & Condition</a>&nbsp;&nbsp;&nbsp;
+    <a href="about.html">About</a>&nbsp;&nbsp;&nbsp;
+    <a href="index.html">Logout</a>&nbsp;&nbsp;&nbsp;
+    <a href="index.html">Log Out</a>
+</nav>
+</header>
+
+<div class="container">
+  <h2>Welcome, <span id="userName">Loading...</span></h2>
+
+  <div class="user-details">
+    <h3>👤 Your Details</h3>
+    <p><strong>Email:</strong> <span id="userEmail">Loading...</span></p>
+    <p><strong>Phone:</strong> <span id="userPhone">Loading...</span></p>
+  </div>
+
+  <div class="booking-details">
+    <h3>📅 Your Per Day Bookings</h3>
+    <table class="bookings-table">
+      <thead>
+        <tr>
+            <th>Booked Car</th>
+          <th>Car Name</th>
+          <th>Pickup Date</th>
+          <th>Drop-off Date</th>
+          <th>Personal Accident Insurance</th>
+          <th>Car Insurance</th>
+          <th>Price</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody id="perDayBookingsTableBody">
+        <tr><td colspan="8" class="no-bookings">Loading per day bookings...</td></tr>
+      </tbody>
+    </table>
+
+    <h3>⏳ Your Per Hour Bookings</h3>
+    <table class="bookings-table">
+      <thead>
+        <tr>
+            <th>Booked Car </th>
+          <th>Car Name</th>
+          <th>Rental Date</th>
+          <th>Total Hours</th>
+          <th>Pickup Time</th>
+          <th>Drop-off Time</th>
+          <th>Personal Accident Insurance</th>
+          <th>Car Insurance</th>
+          <th>Price</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody id="perHourBookingsTableBody">
+        <tr><td colspan="10" class="no-bookings">Loading per hour bookings...</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div id="updateBox">
+    <h3>✏️ Edit Booking</h3>
+    <form id="updateForm"></form>
+  </div>
+
+  <div id="newPriceSection" style="display:none; margin-top:10px;">
+    <strong>Updated Price: ₹<span id="updatedPrice"></span></strong><br><br>
+    <button id="makePaymentBtn">Make Payment</button>
+  </div>
+</div>
+
+<footer>
+  <p>&copy; 2025 Traxano. All rights reserved.</p>
+</footer>
+
+<script src="profile.js"></script>
+<script src="profile_update.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment</title>
+    <link rel="stylesheet" href="payment.css">
+    <link rel="stylesheet" href="agreement.css"> <!-- Link to agreement pop-up CSS -->
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="logo">
+            <span style="color: black; font-size:large;"> TRAXANO: EASY CAR RENTING</span>
+        </div>
+        <nav class="nav-links">
+            <a href="cars.html">Cars</a>
+            <a href="about.html">About</a>
+            <a href="terms_cond.html">Terms & Condition</a>
+            <a href="logout.php">Logout</a>
+        </nav>
+    </header>
+
+    <!-- Outer Box Wrapper -->
+    <div class="outer-box">
+        <div class="booking-container">
+            <h1>Confirm Your Booking</h1>
+
+            <!-- Car Image -->
+            <div class="summary">
+                <img id="carImage" src="" alt="Selected Car" class="car-image">
+            </div>
+
+            <!-- Car & User Details -->
+            <div class="car-info">
+                <p><strong>Car Name:</strong> <span id="carName">Loading...</span></p>
+                <p><strong>Price:</strong> <span id="carPrice">Loading...</span></p>
+            </div>
+
+            <div class="user-info">
+                <p><strong>User Name:</strong> <span id="userName">Loading...</span></p>
+                <p><strong>Email:</strong> <span id="userEmail">Loading...</span></p>
+                <p><strong>Phone:</strong> <span id="userPhone">Loading...</span></p>
+            </div>
+
+            <!-- Rental Type Selection -->
+            <div class="input-field">
+                <label><strong>Rental Type:</strong></label>
+                <input type="radio" name="rentalType" value="perHour" id="rentalPerHour" checked> Per Hour
+                <input type="radio" name="rentalType" value="perDay" id="rentalPerDay"> Per Day
+            </div>
+
+            <!-- Per-Hour Selection -->
+            <div class="input-field" id="hourSelection">
+                <label for="rentalDate"><strong>Rental Date</strong></label>
+                <input type="date" id="rentalDate">
+                <label for="hours"><strong>Hours:</strong></label>
+                <input type="number" id="hours" placeholder="Enter rental hours" min="1" max="24" value="1">
+                <label for="pickupTime"><strong>Pickup Time:</strong></label>
+                <input type="time" id="pickupTime">
+                <label for="dropoffTime"><strong>Drop-off Time:</strong></label>
+                <input type="time" id="dropoffTime">
+                <div id="timeError" style="color: red; display: none;"></div>
+            </div>
+
+            <!-- Per-Day Selection -->
+            <div class="input-field" id="dateSelection" style="display: none;">
+                <label for="pickupDate">Pickup Date:</label>
+                <input type="date" id="pickupDate">
+                <label for="dropoffDate">Drop-off Date:</label>
+                <input type="date" id="dropoffDate">
+            </div>
+
+            <!-- Pickup Location -->
+            <div class="input-field">
+                <label><strong>Pickup Location:</strong></label>
+                <select id="pickupLocation">
+                    <option value="company">At Company</option>
+                    <option value="other">Other Location</option>
+                </select>
+                <input type="text" id="pickupAddress" placeholder="Enter address" style="display: none;">
+            </div>
+
+            <!-- Drop-off Location -->
+            <div class="input-field">
+                <label><strong>Drop-off Location:</strong></label>
+                <select id="dropoffLocation">
+                    <option value="company">At Company</option>
+                    <option value="other">Other Location</option>
+                </select>
+                <input type="text" id="dropoffAddress" placeholder="Enter address" style="display: none;">
+            </div>
+
+            <!-- Add the Agreement link before Total Price -->
+<div class="agreement-link">
+    <a href="#" id="agreementLink" disabled >View Agreement</a>
+</div>
+
+<!-- Modal for Agreement -->
+<div id="agreementModal" class="modal" style="display: none;">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2 class="modal-title">CAR RENTAL AGREEMENT</h2>
+            <span class="close">&times;</span>
+        </div>
+        <div class="modal-body">
+            <p><strong style="color: blue;"> Date:</strong> <span id="agreementDate">April 1, 2025</span></p>
+            <p><strong >CAR RENTAL AGREEMENT IS MADE AND ENTERED INTO BY AND BETWEEN</strong></p>
+            <p><strong>Traxano Car Rental </strong> <strong>AND  Renter:</strong> <span id="renterName">Loading...</span></p>
+           
+            <h3>CAR RENTAL DETAILS</h3>
+            <p><strong>Car Name:</strong> <span id="carNameModal">Loading...</span></p>
+            <p><strong>Base Price:</strong> <span id="priceModal">Loading...</span></p>
+
+            <h3>Insurance Options:</h3>
+            <label><input type="checkbox" id="insuranceCheck"> Basic Car Insurance (+₹100)</label><br>
+            <label><input type="checkbox" id="paiCheck"> Personal Accident Insurance (PAI) (+₹100)</label>
+
+            <p><strong>Total Estimated Price:</strong> <span id="totalPriceModal">Rs0</span></p>
+
+            <h3>Agreement:</h3>
+            <label><input type="checkbox" id="agreeToTerms"> I have read and agree to the <a href="terms_cond.html">(Terms & condition)</a></label>
+
+            <br><br>
+            <div class="modal-footer">
+                <button id="confirmAgreement" disabled>Confirm & Proceed</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div style="margin-top: 5px; padding: 10px; border: 1px solid #eee; border-radius: 5px;">
+    <h3>Payment Summary:</h3>
+    <div class="total-price">
+        <p><strong>Total Price:</strong> <span id="totalPrice">Rs0</span></p>
+        <p id="insuranceMessage"></p>
+        <p id="paiMessage"></p>
+    </div>
+    <div>
+        <button id="submit-btn" class="pay-btn">Make Payment</button>
+    </div>
+</div>
+
+
+    <!-- External JavaScript -->
+    <script src="payment.js"></script>
+    <script src="payment1.js"></script>
+    <script src="agreement.js"></script> <!-- Link to agreement JavaScript -->
+
+</body>
+</html>
