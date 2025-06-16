@@ -14,8 +14,8 @@ app.secret_key = secret_key  # Set the generated secret key
 CORS(app, supports_credentials=True, resources={r"/*": {"origins": "http://localhost"}})
 
 # Email credentials
-EMAIL_USER = "anitaharyan0@gmail.com"  # Replace with your actual email address
-EMAIL_PASS = "ewoj pkzf bbqn eumw"  # Replace with your actual app password
+EMAIL_USER = "abc@gmail.com"  # Replace with your actual email address
+EMAIL_PASS = ""  # Replace with your actual app password
 
 # Utility: Send OTP to email
 def send_email_otp(email):
