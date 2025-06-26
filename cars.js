@@ -48,10 +48,10 @@ function displayCars(filteredCars) {
         carDiv.classList.add("car");
 
         carDiv.innerHTML = `
-            <img src="http://localhost/car_rental/${car.image}" 
-                 alt="${car.name}" 
-                 onerror="this.onerror=null; this.src='http://localhost/car_rental/default-car.png';">
-            <h3>${car.name}</h3>
+        <img src="${car.image}" 
+     alt="${car.name}" 
+     onerror="this.onerror=null; this.src='default-car.png';">
+           <h3>${car.name}</h3>
             <p>${car.tripType.charAt(0).toUpperCase() + car.tripType.slice(1)} Trip</p>
             <p>Fuel: ${car.fuel.charAt(0).toUpperCase() + car.fuel.slice(1)}</p>
             <p>Seating: ${car.seating}</p>
